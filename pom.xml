@@ -10,8 +10,8 @@
     <module>SpringBoot</module>
     <module>RESTServices</module>
     <module>WebServices</module>
-    <module>Database_JPA_Experiments</module>
     <module>Security</module>
+    <module>Database_JPA_Experiments</module>
   </modules>
   <packaging>pom</packaging>
 
