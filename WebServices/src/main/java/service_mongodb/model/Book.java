@@ -1,4 +1,4 @@
-package service_mongodb;
+package service_mongodb.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

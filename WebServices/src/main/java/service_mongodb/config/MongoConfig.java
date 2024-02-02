@@ -1,4 +1,4 @@
-package service_mongodb;
+package service_mongodb.config;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import service_mongodb.repositories.BookRepository;
 
 import java.util.concurrent.TimeUnit;
 

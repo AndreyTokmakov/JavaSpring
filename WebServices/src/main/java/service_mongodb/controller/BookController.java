@@ -1,10 +1,12 @@
-package service_mongodb;
+package service_mongodb.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import service_mongodb.model.Book;
+import service_mongodb.repositories.BookRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +27,11 @@ public class BookController
         log.info("getAllBooks() called");
         try
         {
-            List<Book> listOfBooks = new ArrayList<>();
-            if(bookTitle == null || bookTitle.isEmpty())  {
-                bookRepository.findAll().forEach(listOfBooks::add);
+            final List<Book> listOfBooks = new ArrayList<>();
+            if (bookTitle == null || bookTitle.isEmpty())  {
+                listOfBooks.addAll(bookRepository.findAll());
             }  else  {
-                bookRepository.findByTitleContaining(bookTitle).forEach(listOfBooks::add);
+                listOfBooks.addAll(bookRepository.findByTitleContaining(bookTitle));
             }
 
             if (listOfBooks.isEmpty())  {

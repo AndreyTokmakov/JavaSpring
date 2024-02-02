@@ -1,7 +1,8 @@
-package service_mongodb;
+package service_mongodb.repositories;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import service_mongodb.model.Book;
 
 import java.util.List;
 
