@@ -1,4 +1,4 @@
-package mdm;
+package mdm.service;
 
 
 import lombok.extern.log4j.Log4j2;

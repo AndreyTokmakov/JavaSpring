@@ -1,10 +1,9 @@
-package mdm;
+package mdm.controller;
 
 import lombok.extern.log4j.Log4j2;
-import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
+
+import mdm.service.MDMService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Log4j2

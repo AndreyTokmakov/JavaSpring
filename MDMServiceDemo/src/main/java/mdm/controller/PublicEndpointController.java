@@ -1,17 +1,19 @@
-package mdm;
+package mdm.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
+import mdm.service.MDMService;
+import mdm.responses.HealthStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Enumeration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 
 @Log4j2
+// @CrossOrigin("http://0.0.0.0:8080")
 @RestController
 @RequestMapping("/public")
 public class PublicEndpointController

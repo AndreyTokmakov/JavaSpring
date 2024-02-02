@@ -1,4 +1,4 @@
-package mdm;
+package mdm.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
