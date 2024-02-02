@@ -25,7 +25,7 @@ public class PrivateEndpointController
     @GetMapping("/info")
     public String info(@RequestParam(value = "deviceId", required = false) final String deviceId) {
         log.info("PrivateEndpointController::handleInfo(). Params: " + deviceId);
-        return buildResponse("Hello " + deviceId + ", counter: " + service.getCounter());
+        return buildResponse("Hello " + deviceId);
     }
 }
 
