@@ -30,7 +30,12 @@ public class MDMService
 
     public Optional<Device> findDeviceById(String deviceId)
     {
-        return deviceRepository.findById(deviceId);
+        Optional<Device> device = deviceRepository.findById(deviceId);
+        if (device.isPresent())
+            System.out.println(device);
+        else
+            System.err.println("Failed to find device with ID: " + deviceId);
+        return device;
     }
 
     public Device addDevice(Device device)

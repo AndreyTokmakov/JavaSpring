@@ -1,0 +1,5 @@
+mongodb:
+  database-name: "mdm"
+  connection-string: "mongodb://localhost:27017"
+  username: "admin"
+  password: "admin"

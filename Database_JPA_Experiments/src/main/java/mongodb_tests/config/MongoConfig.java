@@ -1,11 +1,14 @@
-package mdm.config;
+package mongodb_tests.config;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import jpa.Customer;
+import jpa.Repository;
 import lombok.extern.log4j.Log4j2;
-import mdm.repositories.DeviceRepository;
+import mongodb_tests.repositories.DeviceRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -15,8 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 @Log4j2
 @Configuration
-//@EnableMongoRepositories(basePackageClasses = DeviceRepository.class)
-@EnableMongoRepositories(basePackages = "mdm.repositories")
+@EnableMongoRepositories(basePackageClasses = DeviceRepository.class)
 public class MongoConfig {
 
     public MongoConfig() {
@@ -24,7 +26,7 @@ public class MongoConfig {
     }
 
     @Bean
-    public MongoClient mongoClient() {
+    MongoClient mongoClient() {
         ConnectionString connectionString  = new ConnectionString("mongodb://admin:admin@localhost:27017");
 
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
@@ -38,7 +40,7 @@ public class MongoConfig {
     }
 
     @Bean
-    public MongoTemplate mongoTemplate(MongoClient mongoClient) {
+    MongoTemplate mongoTemplate(MongoClient mongoClient) {
         return new MongoTemplate(mongoClient, "mdm");
     }
 }
