@@ -3,7 +3,8 @@ package mdm.devices;
 import lombok.Getter;
 
 @Getter
-public enum RoleType {
+public enum RoleType
+{
     Drone("drone"),
     GSM("gsm"),
     Sleeve("sleeve");

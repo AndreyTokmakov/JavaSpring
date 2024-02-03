@@ -1,7 +1,6 @@
 package mdm.model;
 
 import lombok.*;
-import mdm.devices.RoleType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -9,16 +8,17 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Document(collection = "devices")
-public class Device {
+@RequiredArgsConstructor
+@Document(collection = "groups")
+public class Group {
     @Id
-    @Field("id")
-    private String id;
+    @NonNull
+    @Field("name")
+    private String name;
 
-    @Field("role")
-    private RoleType role;
+    @Field("key")
+    private String key;
 
-    @Field("group")
-    private String group;
+    @Field("certificate")
+    private String certificate;
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 public class PrivateEndpointController
 {
     @Autowired
-    // @Qualifier("RemoteService")
     private MDMService service;
 
     public PrivateEndpointController() {
