@@ -10,6 +10,7 @@
     <module>SpringBoot</module>
     <module>RESTServices</module>
     <module>WebServices</module>
+    <module>WebSockets</module>
     <module>Security</module>
     <module>Database_JPA_Experiments</module>
     <module>MDMServiceDemo</module>
