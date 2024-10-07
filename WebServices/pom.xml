@@ -50,9 +50,6 @@
             <artifactId>wiremock</artifactId>
             <version>${wiremock.version}</version>
         </dependency>
-
-
-
     </dependencies>
 
 </project>

@@ -8,11 +8,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringCore</artifactId>
-    <packaging>jar</packaging>
-    <groupId>java.spring.core</groupId>
-    <name>SpringCore</name>
+    <name>SpringBootTestBasics</name>
     <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
+    <groupId>spring.boot.test.basics</groupId>
+    <artifactId>SpringBootTestBasics</artifactId>
 
     <dependencies>
         <dependency>
