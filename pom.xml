@@ -9,6 +9,7 @@
         <modules>
             <module>Annotations_Autowired</module>
             <module>SpringCore</module>
+            <module>DesignPatterns</module>
             <module>SpringBoot</module>
             <module>SpringBootTestBasics</module>
             <module>RESTServices</module>
