@@ -22,7 +22,7 @@ import lombok.extern.log4j.Log4j2;
 public class HomeController {
 	
 	public HomeController() {
-		log.info(this.getClass().getSimpleName() + " created!");
+        log.info("{} created!", this.getClass().getSimpleName());
 	}
 
 	@RequestMapping("/")
