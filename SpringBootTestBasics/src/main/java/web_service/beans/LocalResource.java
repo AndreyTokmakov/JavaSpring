@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j2;
 public class LocalResource implements Resource {
 
 	public LocalResource() {
-		log.info(this.getClass().getSimpleName() + " created!");
+        log.info("{} created!", this.getClass().getSimpleName());
 	}
 	
 	@Override

@@ -37,7 +37,7 @@ public final class HelloController {
 	private Resource resource;
 	
 	public HelloController() {
-	    log.info(this.getClass().getSimpleName() + " created!");
+        log.info("{} created!", this.getClass().getSimpleName());
 	}
 	
     private String formatGreet(final String name) {
@@ -47,7 +47,7 @@ public final class HelloController {
     @GetMapping("/resource")
     public String checkResource() {
     	final String text = resource.getData();
-    	log.info("checkResource() called for " + text );
+        log.info("checkResource() called for {}", text);
     	return "<body bgcolor='gray'>" + text + "</body>";
     }
     
@@ -60,7 +60,7 @@ public final class HelloController {
 
     @GetMapping("/info")
     public String handleInfoContext(@RequestParam(value = "name", required = false) final String name) {
-    	log.info("handleInfoContext() called. Params: " + name);
+        log.info("handleInfoContext() called. Params: {}", name);
         if (StringUtils.isEmpty(name)) {
             return formatGreet("Anonymous");
         }
@@ -71,7 +71,7 @@ public final class HelloController {
 
     @GetMapping("/info1")
     public String handleInfo1Context(@RequestParam(required = false) final String name) {
-    	log.info("handleInfo1Context() called. Params: " + name);
+        log.info("handleInfo1Context() called. Params: {}", name);
         return "<body bgcolor='gray'>handleInfoWithParam1</body>";
         // CALL: http://localhost:8080/info?name=12345
         // CALL: http://localhost:8080/info
@@ -79,7 +79,7 @@ public final class HelloController {
 
     @GetMapping("/info2")
     public String handleInfo2Context(@RequestParam Optional<String> name) {
-    	log.info("handleInfo2Context() called. Params: " + name.orElseGet(() -> "not provided"));
+        log.info("handleInfo2Context() called. Params: {}", name.orElseGet(() -> "not provided"));
     	return "<body bgcolor='gray'>Hello for " + name.orElseGet(() -> "not provided")+ "</body>";
         // CALL: http://localhost:8080/info2?name=12345
         // CALL: http://localhost:8080/info2
@@ -95,27 +95,27 @@ public final class HelloController {
 
     @GetMapping("/info4")
     public String handleInfo4Context(@RequestParam final Map<String,String> allParams) {
-    	log.info("handleInfo4Context() called. Params: " +  allParams.entrySet());
+        log.info("handleInfo4Context() called. Params: {}", allParams.entrySet());
     	return "<body bgcolor='gray'>Params: " +  allParams.entrySet() + "</body>";
     	// CALL:://localhost:8080/info4?param1=value1&param2=value2&param3=value3
     }
      
     @GetMapping("/param_list")
     public String handleParamList(@RequestParam("names") final List<String> names) {
-    	log.info("handleParamList() called. Names: " +  names);
+        log.info("handleParamList() called. Names: {}", names);
     	return "<body bgcolor='gray'>Names: " +  names + "</body>";
     	// CALL: http://localhost:8080/param_list?names=1,2,3,4,5
     }
     
     @GetMapping("/messages/{id}")
     public String handleMessageById(@PathVariable("id") final String messageId) {
-    	log.info("handleMessageById() called. Id: " +  messageId);
+        log.info("handleMessageById() called. Id: {}", messageId);
     	return "<body bgcolor='gray'>Message id: " +  messageId + "</body>";
     	// CALL: http://localhost:8080/messages/123
     }
  
     @GetMapping("/two_params")
-    public String handleTwoParamsContext(@RequestParam(value = "name", required = false, defaultValue = "Jonh Dow") final String name,
+    public String handleTwoParamsContext(@RequestParam(value = "name", required = false, defaultValue = "John Dow") final String name,
     								     @RequestParam(value = "id",   required = false, defaultValue = "-1") final int id) {
     	log.info("handleInfo3Context() called. Params: " + name);
     	return "<body bgcolor='gray'>Hello for " + name + " with id = " + id + "</body>";
