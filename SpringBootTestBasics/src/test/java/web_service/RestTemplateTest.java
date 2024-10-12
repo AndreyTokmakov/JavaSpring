@@ -8,7 +8,7 @@
 * @since   : Jan 29, 2021
 ****************************************************************************/
 
-package TestConfiguration.web_service;
+package web_service;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
