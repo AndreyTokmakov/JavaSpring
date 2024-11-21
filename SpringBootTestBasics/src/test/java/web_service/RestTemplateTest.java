@@ -8,7 +8,7 @@
 * @since   : Jan 29, 2021
 ****************************************************************************/
 
-package TestConfiguration.web_service;
+package web_service;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,9 +30,10 @@ public class RestTemplateTest {
     private TestRestTemplate service;
 
     @Test
-    public void Test1() {
+    public void Test1()
+    {
 		String url = "/resource";
-		ResponseEntity<String> expected = new ResponseEntity<String>("<body bgcolor='gray'>REMORE_RESOURCE</body>", HttpStatus.OK);
+		ResponseEntity<String> expected = new ResponseEntity<String>("<body bgcolor='gray'>REMOTE_RESOURCE</body>", HttpStatus.OK);
 		ResponseEntity<String> response = service.getForEntity(url, String.class);
 
         Assertions.assertThat(response.getStatusCode()).isEqualTo(expected.getStatusCode());

@@ -1,16 +1,4 @@
-/****************************************************************************
-* Copyright 2020 (C) Andrey Tokmakov
-* HelloControllerIT.java class
-*
-* @name    : HelloControllerIT.java
-* @author  : Tokmakov Andrey
-* @version : 1.0
-* @since   : Dec 27, 2020
-****************************************************************************/
-
-package simple_web_app;
-
-import static org.assertj.core.api.Assertions.*;
+package simple_example;
 
 import java.net.URL;
 
@@ -23,19 +11,22 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 // The embedded server starts on a random port because of webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 // and the actual port is discovered at runtime with @LocalServerPort.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerIT {
+public class SimpleExampleTest
+{
 
-	@LocalServerPort
-	private int port;
+    @LocalServerPort
+    private int port;
 
-	private URL base;
+    private URL base;
 
-	@Autowired
-	private TestRestTemplate template;
+    @Autowired
+    private TestRestTemplate template;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -43,14 +34,18 @@ public class HelloControllerIT {
     }
 
     @Test
-    public void getHello() throws Exception {
+    public void getHelloOK() throws Exception
+    {
+        final String messageExpected = "Test message from Controller::index() method";
         ResponseEntity<String> response = template.getForEntity(base.toString(),String.class);
-        assertThat(response.getBody()).isEqualTo("Greetings from Spring Boot!");
+        assertThat(response.getBody()).isEqualTo(messageExpected);
     }
 
     @Test
-    public void getHello_ShallFail() throws Exception {
+    public void getHello_ShallFail() throws Exception
+    {
+        final String messageExpected = "Test message from Controller::index() method BADDDD";
         ResponseEntity<String> response = template.getForEntity(base.toString(),String.class);
-        assertThat(response.getBody()).isEqualTo("Greetings from Spring Boot! OPS");
+        assertThat(response.getBody()).isEqualTo(messageExpected);
     }
 }

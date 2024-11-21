@@ -10,13 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DatabaseRunner implements CommandLineRunner
 {
     @Autowired
-    @Qualifier("javaToDatabaseAdapter")
-    // @Qualifier("JavaToDatabaseAdapterEx")
+    // @Qualifier("javaToDatabaseAdapter")
+    @Qualifier("javaToDatabaseAdapterEx")
     private IDatabase database;
-
-    public static void main(String[] args) {
-        SpringApplication.run(DatabaseRunner.class);
-    }
 
     @Override
     public void run(String... args) throws Exception
@@ -25,5 +21,9 @@ public class DatabaseRunner implements CommandLineRunner
         database.update(new Object());
         database.select();
         database.remove();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(DatabaseRunner.class);
     }
 }
