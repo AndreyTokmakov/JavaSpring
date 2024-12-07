@@ -16,9 +16,9 @@ public class ProtectedRestController
     }
 
     @GetMapping("/info")
-    public @ResponseBody String getAccount()
+    public @ResponseBody String getInfo()
     {
-        log.info("RestServiceController::getAccount()");
+        log.info("ProtectedRestController::getInfo()");
         // return accountService.getAccount(12345);
         return "<html><body bgcolor='gray'>OK - protected</html>";
     }

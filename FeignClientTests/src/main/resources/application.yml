@@ -1,0 +1,7 @@
+
+
+#  Exclude DataSourceAutoConfiguration : https://www.baeldung.com/spring-boot-failed-to-configure-data-source
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

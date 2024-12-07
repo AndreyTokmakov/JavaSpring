@@ -18,7 +18,7 @@ public class PublicRestController
     @GetMapping("/info")
     public @ResponseBody String getAccount()
     {
-        log.info("RestServiceController::getAccount()");
+        log.info("PublicRestController::getInfo()");
         // return accountService.getAccount(12345);
         return "<html><body bgcolor='gray'>OK</html>";
     }
