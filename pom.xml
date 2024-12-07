@@ -10,6 +10,7 @@
             <module>Annotations_Autowired</module>
             <module>SpringCore</module>
             <module>DesignPatterns</module>
+            <module>FeignClientTests</module>
             <module>SpringBoot</module>
             <module>SpringBootTestBasics</module>
             <module>RESTServices</module>
