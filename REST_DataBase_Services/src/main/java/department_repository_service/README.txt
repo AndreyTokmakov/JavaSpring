@@ -8,4 +8,4 @@ H2 Console: http://localhost:8083/h2-console
 Driver Class : org.h2.Driver
 JDBC URL     : jdbc:h2:mem:test
 JDUser Name  : tester
-Password     : jdbc:h2:mem:test
+Password     : 12345
