@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>spring.rest.services</groupId>
-    <artifactId>RESTServices</artifactId>
+    <artifactId>REST_DataBase_Services</artifactId>
 
     <dependencies>
         <!-- H2 Database: In-memory database for development and testing -->

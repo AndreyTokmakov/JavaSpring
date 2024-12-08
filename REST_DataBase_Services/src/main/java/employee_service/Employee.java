@@ -17,6 +17,7 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Setter
@@ -24,7 +25,10 @@ import javax.persistence.Id;
 @Entity
 public class Employee
 {
-	private @Id @GeneratedValue Long id;
+	@Id                                             // Specifies the primary key of the entity.
+	@GeneratedValue(strategy = GenerationType.AUTO) // Auto-generates the primary key value.
+	private Long id;
+
 	private String name;
 	private String role;
 

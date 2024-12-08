@@ -26,4 +26,6 @@ public class ApplicationMain {
 
 curl http://localhost:8082/employees && echo ""
 
+H2: http://localhost:8082/h2-console/
+
 */

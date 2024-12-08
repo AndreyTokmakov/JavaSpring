@@ -13,7 +13,7 @@
             <module>FeignClientTests</module>
             <module>SpringBoot</module>
             <module>SpringBootTestBasics</module>
-            <module>RESTServices</module>
+            <module>REST_DataBase_Services</module>
             <module>WebServices</module>
             <module>WebSockets</module>
             <module>Security</module>

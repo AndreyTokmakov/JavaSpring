@@ -13,5 +13,3 @@ public class ServiceMain
         SpringApplication.run(ServiceMain.class, args);
     }
 }
-
-//  curl http://0.0.0.0:8083/departments/
