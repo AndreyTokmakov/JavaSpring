@@ -12,5 +12,7 @@ public class ApplicationMain
 	}
 }
 
-
-// Call http://localhost:8080/greeting?name=User1111
+/**
+curl http://localhost:8080/greeting?name=User1111
+wget http://localhost:8080/greeting?name=User1111222
+**/
