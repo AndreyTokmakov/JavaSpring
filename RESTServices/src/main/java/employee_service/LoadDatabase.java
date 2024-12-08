@@ -17,14 +17,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-class LoadDatabase {
+class LoadDatabase
+{
 	private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
+	public LoadDatabase()
+	{
+		log.info("LoadDatabase created!. Class name: {}", this.getClass().getSimpleName());
+	}
+
 	@Bean
-	CommandLineRunner initDatabase(EmployeeRepository repository) {
+	CommandLineRunner initDatabase(EmployeeRepository repository)
+	{
+		log.info("LoadDatabase::initDatabase() called");
 		return args -> {
-			log.info("Preloading " + repository.save(new Employee("Bilbo Baggins", "burglar")));
-			log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
+            log.info("Preloading {}", repository.save(new Employee("Bilbo Baggins", "burglar")));
+            log.info("Preloading {}", repository.save(new Employee("Frodo Baggins", "thief")));
 		};
 	}
 }

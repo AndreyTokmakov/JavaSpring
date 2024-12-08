@@ -12,6 +12,8 @@ package employee_service;
 
 import java.util.List;
 
+import employee_service.exceptions.EmployeeNotFoundException;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,13 +22,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-class EmployeeController {
 
+@Log4j2
+@RestController
+class EmployeeController
+{
 	private final EmployeeRepository repository;
 
-	EmployeeController(EmployeeRepository repository) {
+	public EmployeeController(EmployeeRepository repository) {
 		this.repository = repository;
+		log.info("{} created!", this.getClass().getSimpleName());
 	}
 
 	// Aggregate root
