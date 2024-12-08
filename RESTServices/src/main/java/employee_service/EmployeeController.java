@@ -36,18 +36,24 @@ class EmployeeController
 
 	// Aggregate root
 	@GetMapping("/employees")
-	List<Employee> all() {
+	List<Employee> all()
+	{
+		log.info("EmployeeController::all() called");
 		return repository.findAll();
 	}
 
 	@PostMapping("/employees")
-	Employee newEmployee(@RequestBody Employee newEmployee) {
+	Employee newEmployee(@RequestBody Employee newEmployee)
+	{
+		log.info("EmployeeController::newEmployee() called");
 		return repository.save(newEmployee);
 	}
 
 	// Single item
 	@GetMapping("/employees/{id}")
-	Employee one(@PathVariable Long id) {
+	Employee one(@PathVariable Long id)
+	{
+		log.info("EmployeeController::one({}) called", id);
 		return repository.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
 	}
 
