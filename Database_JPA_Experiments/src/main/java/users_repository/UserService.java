@@ -26,4 +26,10 @@ public class UserService
         log.info("UserService::getUserByName({})", name);
         return userRepository.findByName(name);
     }
+
+    public Optional<User> getUserByEmail(String email)
+    {
+        log.info("UserService::getUserByName(email = {})", email);
+        return userRepository.findByEmail(email);
+    }
 }

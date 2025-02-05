@@ -39,4 +39,22 @@ public class RestController
                 .body("User(id: " + user.getUserId() + ", name: "
                         + user.getName() + ", email: " + user.getEmail() + ")");
     }
+
+    @RequestMapping("/get_user_by_email")
+    public ResponseEntity<String> getUserByEmail(@RequestParam(value = "email", required = true) final String email)
+    {
+        log.info("RestController::getUserByEmail()");
+        Optional<User> userResult = userService.getUserByEmail(email);
+        if (userResult.isEmpty())  {
+            return ResponseEntity.status(404).body("Failed to find user with email '" + email + "'");
+        }
+
+        final User user = userResult.get();
+        System.out.println("User(id: " + user.getUserId() + ", name: "
+                + user.getName() + ", email: " + user.getEmail() + ")");
+        return ResponseEntity.status(200)
+                .header("Custom-Header", "foo")
+                .body("User(id: " + user.getUserId() + ", name: "
+                        + user.getName() + ", email: " + user.getEmail() + ")");
+    }
 }
