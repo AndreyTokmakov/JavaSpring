@@ -17,9 +17,10 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Component
 @Profile("prod")
-public class RealEmployeeService implements EmployeeService {
-
-	public RealEmployeeService() {
-		log.info(this.getClass().getName() + " created. PROD only.");
+public class RealEmployeeService implements EmployeeService
+{
+	public RealEmployeeService()
+	{
+        log.info("{} created. PROD only.", this.getClass().getName());
 	}
 }

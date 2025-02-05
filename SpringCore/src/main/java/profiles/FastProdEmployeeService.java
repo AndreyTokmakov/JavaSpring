@@ -17,9 +17,10 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Component
 @Profile("prod & fast")
-public class FastProdEmployeeService implements EmployeeService {
-
-	public FastProdEmployeeService() {
-		log.info(this.getClass().getName() + " created. PROD & FAST");
+public class FastProdEmployeeService implements EmployeeService
+{
+	public FastProdEmployeeService()
+	{
+        log.info("{} created. PROD & FAST", this.getClass().getName());
 	}
 }

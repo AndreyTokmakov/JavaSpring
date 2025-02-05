@@ -17,9 +17,9 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Component
 @Profile("!prod")
-public class MockEmployeeService implements EmployeeService {
-
-	public MockEmployeeService() {
-		log.info(this.getClass().getName() + " created. NOT PROD!");
+public class MockEmployeeService implements EmployeeService
+{
+	public MockEmployeeService(){
+        log.info("{} created. NOT PROD!", this.getClass().getName());
 	}
 }

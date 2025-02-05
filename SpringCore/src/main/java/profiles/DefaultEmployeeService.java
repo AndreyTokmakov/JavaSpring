@@ -17,9 +17,10 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Component
 @Profile("default")
-public class DefaultEmployeeService {
-	
-	public DefaultEmployeeService() {
-		log.info(this.getClass().getName() + " created. DEFAULT");
+public class DefaultEmployeeService
+{
+	public DefaultEmployeeService()
+	{
+        log.info("{} created. DEFAULT", this.getClass().getName());
 	}
 }

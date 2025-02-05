@@ -9,6 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class AopOverviewApplication
 {
+    // https://medium.com/@ankithahjpgowda/what-is-aspect-oriented-programming-aop-in-spring-e7a845d904e
     public static void main(String[] args)
     {
         ApplicationContext context = SpringApplication.run(AopOverviewApplication.class, args);

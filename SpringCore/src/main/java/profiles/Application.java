@@ -20,19 +20,21 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @ComponentScan
-public class Application {
-
+public class Application
+{
     @Autowired
     private Environment environment;
 
-    public static void main(String[] args) {
-        // withProd();
+    public static void main(String[] args)
+    {
+        withProd();
         // withProdAndFast();
     	// withProd_FastAsDefault();
-    	withNoProfie();
+    	// withNoProfile();
     }
 
-    private static void withProd() {
+    private static void withProd()
+    {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(Application.class);
         applicationContext.getEnvironment().setActiveProfiles("prod");
@@ -44,7 +46,8 @@ public class Application {
         applicationContext.close();
     }
 
-    private static void withProdAndFast() {
+    private static void withProdAndFast()
+    {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(Application.class);
         applicationContext.getEnvironment().setDefaultProfiles("fast");
@@ -57,7 +60,8 @@ public class Application {
         applicationContext.close();
     }
 
-    private static void withProd_FastAsDefault() {
+    private static void withProd_FastAsDefault()
+    {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(Application.class);
         applicationContext.getEnvironment().setDefaultProfiles("fast");
@@ -70,7 +74,8 @@ public class Application {
         applicationContext.close();
     }
 
-    private static void withNoProfie() {
+    private static void withNoProfile()
+    {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(Application.class);
         applicationContext.refresh();
