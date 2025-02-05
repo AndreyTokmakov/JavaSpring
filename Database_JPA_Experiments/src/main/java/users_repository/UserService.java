@@ -23,8 +23,7 @@ public class UserService
 
     public Optional<User> getUserByName(String name)
     {
-        log.info("UserService::getUserByName()");
-        final Optional<User> user = userRepository.findByName(name);
-        return user;
+        log.info("UserService::getUserByName({})", name);
+        return userRepository.findByName(name);
     }
 }

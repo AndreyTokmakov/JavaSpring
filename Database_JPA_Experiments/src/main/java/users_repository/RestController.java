@@ -2,9 +2,12 @@ package users_repository;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -19,12 +22,21 @@ public class RestController
         log.info("{} created!", this.getClass().getSimpleName());
     }
 
-    @RequestMapping("/get_users")
-    public @ResponseBody String getUser()
+    @RequestMapping("/get_user")
+    public ResponseEntity<String> getUser(@RequestParam(value = "name", required = true) final String name)
     {
         log.info("RestController::getUser()");
-        Optional<User> user = userService.getUserByName("admin");
-        user.ifPresent(log::info);
-        return "";
+        Optional<User> userResult = userService.getUserByName(name);
+        if (userResult.isEmpty())  {
+            return ResponseEntity.status(404).body("Failed to find user with name '" + name + "'");
+        }
+
+        final User user = userResult.get();
+        System.out.println("User(id: " + user.getUserId() + ", name: "
+                + user.getName() + ", email: " + user.getEmail() + ")");
+        return ResponseEntity.status(200)
+                .header("Custom-Header", "foo")
+                .body("User(id: " + user.getUserId() + ", name: "
+                        + user.getName() + ", email: " + user.getEmail() + ")");
     }
 }
