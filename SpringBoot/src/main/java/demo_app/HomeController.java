@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 	
 	public HomeController() {
-		log.info(this.getClass().getSimpleName() + " created!");
+        log.info("{} created!", this.getClass().getSimpleName());
 	}
 
 	@RequestMapping("/")
