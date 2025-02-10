@@ -11,7 +11,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 public class SchedulerConfig
 {
     public SchedulerConfig() {
-        log.info("* * * * * " + this.getClass().getSimpleName() + " is created * * * * ");
+        log.info("* * * * * {} is created * * * * ", this.getClass().getSimpleName());
     }
 
     @Bean
