@@ -8,12 +8,12 @@
 * @since   : Dec 14, 2020
 ****************************************************************************/
 
-package test;
+package autowired.resolve_by_name;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("constructor_annotation")
+@ComponentScan("autowired.resolve_by_name;")
 public class AppConfigForAutowired {
 }

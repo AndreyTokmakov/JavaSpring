@@ -8,8 +8,9 @@
 * @since   : Dec 14, 2020
 ****************************************************************************/
 
-package test;
+package autowired.resolve_by_name;
 
-public interface IDao {
-	public void result();
+public interface IDao
+{
+	void result();
 }

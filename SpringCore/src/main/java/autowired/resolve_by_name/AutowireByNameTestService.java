@@ -8,20 +8,22 @@
 * @since   : Dec 14, 2020
 ****************************************************************************/
 
-package test;
+package autowired.resolve_by_name;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AutowireByNameTestService {
+public class AutowireByNameTestService
+{
 	@Autowired
 	private IDao employeeDao;
   
 	@Autowired
 	private IDao customerDao;
   
-	public void printResults() {
+	public void printResults()
+	{
 		System.out.println("\n ------ Autowire By Name Results ------");
 		employeeDao.result();
 		customerDao.result();

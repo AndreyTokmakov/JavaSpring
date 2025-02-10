@@ -8,13 +8,12 @@
 * @since   : Dec 14, 2020
 ****************************************************************************/
 
-package test;
-
+package autowired.resolve_by_name;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CustomerDao implements IDao {
-	
+public class CustomerDao implements IDao
+{
 	@Override
 	public void result() {
 		System.out.println("Customer Dao Implementation");

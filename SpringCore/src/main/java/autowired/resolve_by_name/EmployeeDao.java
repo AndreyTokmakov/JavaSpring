@@ -8,7 +8,7 @@
 * @since   : Dec 14, 2020
 ****************************************************************************/
 
-package test;
+package autowired.resolve_by_name;
 
 import org.springframework.stereotype.Component;
 
