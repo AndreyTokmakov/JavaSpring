@@ -10,6 +10,7 @@
 
 package qualifier.demo1;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
  
+@Getter
 @Configuration
 @Import(Config.class)
 public class QualifierAnnotationExample {
@@ -42,44 +44,20 @@ public class QualifierAnnotationExample {
     private BeanA customQualifiedBeanA;
  
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = 
-        		new AnnotationConfigApplicationContext(QualifierAnnotationExample.class);
-        try {
-            QualifierAnnotationExample qualifierAnnotationExample = 
-            		(QualifierAnnotationExample) context.getBean("qualifierAnnotationExample");
- 
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(QualifierAnnotationExample.class)) {
+            QualifierAnnotationExample qualifierAnnotationExample =
+                    (QualifierAnnotationExample) context.getBean("qualifierAnnotationExample");
+
             System.out.println("BeanA member: " + qualifierAnnotationExample.getBeanA());
             System.out.println("BeanA1 member: " + qualifierAnnotationExample.getBeanA1());
             System.out.println("Qualified BeanA member: " + qualifierAnnotationExample.getBeanA3());
             System.out.println("Custom Qualified BeanA member: " + qualifierAnnotationExample.getCustomQualifiedBeanA());
             System.out.println("InnerConfig:\n" + context.getBean("innerConfig"));
- 
-        } finally {
-            context.close();
+
         }
     }
- 
-    public BeanA getBeanA() {
-		return beanA;
-    }
- 
-    public BeanA getBeanA0() {
-		return beanA0;
-    }
- 
-    public BeanA getBeanA1() {
-		return beanA1;
-    }
- 
-    public BeanA getBeanA3() {
-		return beanA3;
-    }
- 
-	public BeanA getCustomQualifiedBeanA() {
-		return customQualifiedBeanA;
-	}
 
-	@Component("innerConfig")
+    @Component("innerConfig")
 	static class InnerConfig {
         private BeanA beanA;
         private BeanA beanA0;
