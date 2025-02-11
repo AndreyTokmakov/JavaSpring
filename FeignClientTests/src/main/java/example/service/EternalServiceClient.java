@@ -23,19 +23,19 @@ class FeignClientConfig
     // Set the logging level
     @Bean
     Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL; // Adjust this based on your requirement
+        return Logger.Level.FULL;
     }
 
     // Register the custom logger
     @Bean
     public Logger logger() {
-        return new OneLineLogger(); // Your custom logger
+        return new OneLineLogger();
     }
 }
 
 
 @FeignClient(name = "EternalInformationService",
-             url="0.0.0.0:52525/v2/account",
+             url="0.0.0.0:12525/v2/account",
              path = "protected",
              configuration = FeignClientConfig.class
 )
