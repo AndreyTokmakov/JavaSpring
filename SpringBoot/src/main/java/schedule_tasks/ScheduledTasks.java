@@ -19,6 +19,7 @@ public class ScheduledTasks
 {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
+    /*
     @Scheduled(fixedRate = 1000)
     public void reportCurrentTime() {
         log.info("reportCurrentTime: The time is now {}", dateFormat.format(new Date()));
@@ -43,5 +44,11 @@ public class ScheduledTasks
         log.info("* * * * scheduleFixedRateTaskAsync2: started at " + dateFormat.format(new Date()) + " * * * *");
         Thread.sleep(3000);
         log.info("* * * * scheduleFixedRateTaskAsync2: completed at " + dateFormat.format(new Date()) + " * * * *");
+    }*/
+
+    @Scheduled(fixedDelay = 60000L)
+    public void periodicTask() {
+        log.info("periodicTask () : Current Time is {}", dateFormat.format(new Date()));
     }
+
 }

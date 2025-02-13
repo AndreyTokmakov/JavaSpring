@@ -35,7 +35,7 @@ class FeignClientConfig
 
 
 @FeignClient(name = "EternalInformationService",
-             url="0.0.0.0:12525/v2/account",
+             url="0.0.0.0:52525/v2/account",
              path = "protected",
              configuration = FeignClientConfig.class
 )
