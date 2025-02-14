@@ -22,8 +22,10 @@ public class ScheduledCronTasks
         log.info("{} created!", this.getClass().getSimpleName());
     }
 
-    @Scheduled(cron = "${exchange.params.cron}", zone = "UTC")
+    // @Scheduled(cron = "${exchange.params.cron.every_second}", zone = "UTC")
+    @Scheduled(cron = "${exchange.params.cron.every_minute}", zone = "UTC")
+    // @Scheduled(cron = "${exchange.params.cron.every_hour}", zone = "UTC")
     public void callbackTask() {
-        log.info("reportCurrentTime: The time is now {}", timeService.getCurrentTime());
+        log.info("callbackTask() - {}", timeService.getCurrentTime());
     }
 }
