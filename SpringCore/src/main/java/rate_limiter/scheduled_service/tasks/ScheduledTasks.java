@@ -14,11 +14,21 @@ public class ScheduledTasks
     @Autowired
     private IService service;
 
+    public String callService()
+    {
+        try {
+            return service.getInfo();
+        }
+        catch (final RequestNotPermitted exc) {
+            return exc.getMessage();
+        }
+    }
+
     @Scheduled(fixedRate = 250)
     public void reportCurrentTime()
     {
         try {
-            log.info("reportCurrentTime: The time is now {}", service.getInfo());
+            log.info("reportCurrentTime: The time is now {}", callService());
         }
         catch (final RequestNotPermitted exc) {
             log.info(exc.getMessage());
