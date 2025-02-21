@@ -1,4 +1,4 @@
-package rate_limiter;
+package rate_limiter.experiments;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
