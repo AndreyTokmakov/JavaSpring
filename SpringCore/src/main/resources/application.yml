@@ -26,3 +26,9 @@ resilience4j.ratelimiter:
       registerHealthIndicator: true
       subscribeForEvents: true
 
+cron_params:
+  sync:
+    cron:
+      every_second: '* * * * * *'
+      every_minute: '0 * * * * *'
+      every_hour: '0 0 * * * *'

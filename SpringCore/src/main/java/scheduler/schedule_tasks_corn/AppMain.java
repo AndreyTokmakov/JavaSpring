@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@PropertySource(name = "CronSchedulerParameters", value = "cron.properties")
+// @PropertySource(name = "CronSchedulerParameters", value = "cron.properties")
 public class AppMain
 {
     public static void main(String[] args)
