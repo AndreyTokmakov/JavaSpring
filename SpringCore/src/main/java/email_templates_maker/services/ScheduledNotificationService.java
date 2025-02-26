@@ -58,7 +58,7 @@ public class ScheduledNotificationService
         System.out.println(delimiter);
     }
 
-    @Scheduled(fixedDelay = 1000L)
+    @Scheduled(fixedDelay = 5000L)
     public void generateEmailMessage() throws IOException
     {
         emailService.generateEmailMessage();

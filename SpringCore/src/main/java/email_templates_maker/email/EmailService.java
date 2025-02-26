@@ -22,6 +22,8 @@ public class EmailService
     @Autowired
     private FreeMarkerConfigurer freemarkerConfig;
 
+    private final static String delimiter = "=".repeat(160);
+
     public void sendWelcomeEmail(EmailDTO emailDTO,
                                  boolean sendEmail)
     {
@@ -59,9 +61,7 @@ public class EmailService
 
     public void generateEmailMessage()
     {
-        final String delimiter = "=".repeat(160);
-        System.out.println(delimiter);
-
+        String messageBody = "", subject = "";
         try
         {
             var object = Map.ofEntries(Map.entry("assetSymbol", "USDT"));
@@ -70,15 +70,12 @@ public class EmailService
             );
             final Template subjectTemplate = freemarkerConfig.getConfiguration()
                     .getTemplate("/email/allocatedAssetsSubject.ftl");
-            String templateContent = FreeMarkerTemplateUtils
+            subject = FreeMarkerTemplateUtils
                     .processTemplateIntoString(subjectTemplate, templateParameters);
-            System.out.println(templateContent);
         }
         catch (Exception exc) {
             System.out.println(exc.getMessage());
         }
-
-        System.out.println(delimiter);
 
         try
         {
@@ -92,13 +89,14 @@ public class EmailService
             );
             final Template subjectTemplate = freemarkerConfig.getConfiguration()
                     .getTemplate("/email/allocatedAssetsBody.ftl");
-            String templateContent = FreeMarkerTemplateUtils
-                    .processTemplateIntoString(subjectTemplate, templateParameters);
 
-            System.out.println(templateContent);
+            messageBody = FreeMarkerTemplateUtils
+                    .processTemplateIntoString(subjectTemplate, templateParameters);
         }
         catch (Exception exc) {
             System.out.println(exc.getMessage());
         }
+
+        System.out.println(delimiter + "\n" + subject  + "\n" + delimiter + "\n" + messageBody  + "\n" + delimiter);
     }
 }
