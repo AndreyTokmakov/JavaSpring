@@ -31,7 +31,7 @@ public class ScheduledNotificationService
         log.info("{} created!", this.getClass().getSimpleName());
     }
 
-    @Scheduled(cron = "${notifications.cron}", zone = "UTC")
+    // @Scheduled(cron = "${notifications.cron}", zone = "UTC")
     public void sendNotification() throws IOException
     {
         final String delimiter = "=".repeat(160);
@@ -56,5 +56,11 @@ public class ScheduledNotificationService
         emailService.sendWelcomeEmail(email, false);
 
         System.out.println(delimiter);
+    }
+
+    @Scheduled(fixedDelay = 1000L)
+    public void generateEmailMessage() throws IOException
+    {
+        emailService.generateEmailMessage();
     }
 }

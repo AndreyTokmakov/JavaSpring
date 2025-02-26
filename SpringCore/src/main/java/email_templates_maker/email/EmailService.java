@@ -1,7 +1,12 @@
 package email_templates_maker.email;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 import javax.mail.internet.MimeMessage;
+
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -49,6 +54,49 @@ public class EmailService
             System.out.println("Sending welcome email failed, check log...");
             exc.printStackTrace();
             System.exit(0);
+        }
+    }
+
+    public void generateEmailMessage()
+    {
+        final String delimiter = "=".repeat(160);
+        System.out.println(delimiter);
+
+        try {
+            var object = Map.ofEntries(Map.entry("assetSymbol", "USDT"));
+            final Map<String, Object> templateParameters = Map.ofEntries(
+                    Map.entry("object", object)
+            );
+            final Template subjectTemplate = freemarkerConfig.getConfiguration()
+                    .getTemplate("/email/allocatedAssetsSubject.ftl");
+            String templateContent = FreeMarkerTemplateUtils
+                    .processTemplateIntoString(subjectTemplate, templateParameters);
+            System.out.println(templateContent);
+        }
+        catch (Exception exc) {
+            System.out.println(exc.getMessage());
+        }
+
+        System.out.println(delimiter);
+
+        try {
+            var object = Map.ofEntries(
+                    Map.entry("assetSymbol", "USDT"),
+                    Map.entry("network", "Binance")
+            );
+            final Map<String, Object> templateParameters = Map.ofEntries(
+                Map.entry("object", object),
+                Map.entry("createdValues", "{SOMETHING}")
+            );
+            final Template subjectTemplate = freemarkerConfig.getConfiguration()
+                    .getTemplate("/email/allocatedAssetsBody.ftl");
+            String templateContent = FreeMarkerTemplateUtils
+                    .processTemplateIntoString(subjectTemplate, templateParameters);
+
+            System.out.println(templateContent);
+        }
+        catch (Exception exc) {
+            System.out.println(exc.getMessage());
         }
     }
 }

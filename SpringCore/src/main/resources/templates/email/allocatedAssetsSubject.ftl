@@ -1,0 +1,1 @@
+New Asset ${object.assetSymbol} Added
