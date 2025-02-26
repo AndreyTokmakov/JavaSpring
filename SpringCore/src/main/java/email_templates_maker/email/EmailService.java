@@ -62,7 +62,8 @@ public class EmailService
         final String delimiter = "=".repeat(160);
         System.out.println(delimiter);
 
-        try {
+        try
+        {
             var object = Map.ofEntries(Map.entry("assetSymbol", "USDT"));
             final Map<String, Object> templateParameters = Map.ofEntries(
                     Map.entry("object", object)
@@ -79,7 +80,8 @@ public class EmailService
 
         System.out.println(delimiter);
 
-        try {
+        try
+        {
             var object = Map.ofEntries(
                     Map.entry("assetSymbol", "USDT"),
                     Map.entry("network", "Binance")
