@@ -77,11 +77,11 @@ public class ValuesApp {
         System.out.println(systemValue);
         System.out.println(someDefault);
         System.out.println(prioritySystemProperty);
-        System.out.println(Arrays.toString(valuesArray));
+        System.out.println("valuesArray: " + Arrays.toString(valuesArray));
         System.out.println(spelValue);
         System.out.println(spelSomeDefault);
         //System.out.println(someBeanValue);
-        System.out.println(valuesList);
+        System.out.println("valuesList = " + valuesList);
         System.out.println(valuesMap);
         System.out.println(valuesMapKey1);
         System.out.println(unknownMapKey);

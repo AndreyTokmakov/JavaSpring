@@ -32,3 +32,29 @@ cron_params:
       every_second: '* * * * * *'
       every_minute: '0 * * * * *'
       every_hour: '0 0 * * * *'
+
+notifications:
+  cron: '* * * * * *'
+
+notification:
+  email:
+    from: 'Sende1r'
+    to: Receiver_1, Receiver_2, Receiver_3
+    to_list: [ "health", "metrics", "prometheus" ]
+
+spring:
+  mail:
+    host: 'smtp.gmail.com'
+    port: 587
+    username: 'XXXXXXXXXXX'
+    password: 'xxxxxxx'
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true

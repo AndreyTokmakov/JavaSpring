@@ -8,4 +8,4 @@ spring:
 
 service:
   api:
-    url: 'http://localhost:50002'
+    url: 'http://localhost:50002/public'
