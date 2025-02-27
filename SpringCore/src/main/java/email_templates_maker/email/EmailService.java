@@ -2,6 +2,8 @@ package email_templates_maker.email;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import javax.mail.internet.MimeMessage;
 
@@ -17,10 +19,18 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 @Service
 public class EmailService
 {
+    private enum FetchStatus {
+        Failed,
+        Completed
+    }
+
     @Autowired
     private JavaMailSender mailSender;
+
     @Autowired
     private FreeMarkerConfigurer freemarkerConfig;
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private final static String delimiter = "=".repeat(160);
 
@@ -64,14 +74,14 @@ public class EmailService
         String messageBody = "", subject = "";
         try
         {
-            var object = Map.ofEntries(Map.entry("assetSymbol", "USDT"));
-            final Map<String, Object> templateParameters = Map.ofEntries(
-                    Map.entry("object", object)
+            final Map<String, Object> params = Map.ofEntries(
+            Map.entry("date", formatter.format(LocalDateTime.now())),
+                    Map.entry("status", FetchStatus.Failed)
             );
             final Template subjectTemplate = freemarkerConfig.getConfiguration()
                     .getTemplate("/email/allocatedAssetsSubject.ftl");
             subject = FreeMarkerTemplateUtils
-                    .processTemplateIntoString(subjectTemplate, templateParameters);
+                    .processTemplateIntoString(subjectTemplate, params);
         }
         catch (Exception exc) {
             System.out.println(exc.getMessage());
@@ -79,23 +89,22 @@ public class EmailService
 
         try
         {
-            var object = Map.ofEntries(
-                    Map.entry("assetSymbol", "USDT"),
-                    Map.entry("network", "Binance")
-            );
-            final Map<String, Object> templateParameters = Map.ofEntries(
-                Map.entry("object", object),
-                Map.entry("createdValues", "{SOMETHING}")
+            final Map<String, Object> params = Map.ofEntries(
+                    Map.entry("date", formatter.format(LocalDateTime.now())),
+                    Map.entry("message", "{SOMETHING}")
             );
             final Template subjectTemplate = freemarkerConfig.getConfiguration()
                     .getTemplate("/email/allocatedAssetsBody.ftl");
 
             messageBody = FreeMarkerTemplateUtils
-                    .processTemplateIntoString(subjectTemplate, templateParameters);
+                    .processTemplateIntoString(subjectTemplate, params);
         }
         catch (Exception exc) {
             System.out.println(exc.getMessage());
         }
+
+        // Completed
+        // Failed
 
         System.out.println(delimiter + "\n" + subject  + "\n" + delimiter + "\n" + messageBody  + "\n" + delimiter);
     }

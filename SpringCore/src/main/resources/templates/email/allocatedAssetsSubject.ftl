@@ -1,1 +1,1 @@
-New Asset ${object.assetSymbol} Added
+[ATC Asset Allocation] Daily Balance Fetch ${status} – ${date}

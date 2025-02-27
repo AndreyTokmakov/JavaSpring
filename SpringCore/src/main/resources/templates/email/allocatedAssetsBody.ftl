@@ -8,9 +8,9 @@
     <div style="margin-top:40px">Dear Team,</div>
     <div style="margin-top:20px">
         This is an automated notification to inform you that the daily balance fetch from various venues has been successfully completed.<br><br>
-        Execution Time: 23:59:59 Dubai Time.<br><br>
+        Execution Time: ${date} Dubai Time.<br><br>
         Venues Included:.<br><br>
-        ${createdValues}
+        ${message}
     </div>
     <div style="margin-top:20px"><i>Best Regards</i>, <br><i>GGG Mega Team</i></div>
 </div>
