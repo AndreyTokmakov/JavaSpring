@@ -57,8 +57,16 @@ public class ScheduledCronTasks
         log.info("xmlFileTest_EveryHour({})", timeService.getCurrentTime());
     }
 
-    @Scheduled(cron = "${cron_params.sync.cron.1_sec_before_midnight}", zone = "UTC")
+    // @Scheduled(cron = "${cron_params.sync.cron.test}", zone = "UTC")
     public void experimental() {
         log.info("experimental({})", timeService.getCurrentTime());
+    }
+
+    // @Scheduled(cron = "0 34 18 * * *")
+    @Scheduled(cron = "${cron_params.sync.cron.test}", zone = "Asia/Dubai")
+    public void testFunc() {
+        System.out.println("=".repeat(180));
+        System.out.println(timeService.getCurrentTime());
+        System.out.println("=".repeat(180));
     }
 }
