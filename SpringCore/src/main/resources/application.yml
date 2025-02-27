@@ -32,6 +32,7 @@ cron_params:
       every_second: '* * * * * *'
       every_minute: '0 * * * * *'
       every_hour: '0 0 * * * *'
+      1_sec_before_midnight: '0 26 17 * * *'
 
 notifications:
   cron: '* * * * * *'

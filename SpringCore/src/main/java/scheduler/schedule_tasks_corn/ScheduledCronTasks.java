@@ -22,40 +22,43 @@ public class ScheduledCronTasks
         log.info("{} created!", this.getClass().getSimpleName());
     }
 
-    /*
-    @Scheduled(cron = "${exchange.params.cron.every_second}", zone = "UTC")
+    //@Scheduled(cron = "${exchange.params.cron.every_second}", zone = "UTC")
     public void everySecondTask() {
         log.info("everySecondTask({})", timeService.getCurrentTime());
     }
 
-    @Scheduled(cron = "${exchange.params.cron.every_minute}", zone = "UTC")
+    //@Scheduled(cron = "${exchange.params.cron.every_minute}", zone = "UTC")
     public void everyMinuteTask() {
         log.info("everyMinuteTask({})", timeService.getCurrentTime());
     }
 
-    @Scheduled(cron = "${exchange.params.cron.every_hour}", zone = "UTC")
+    //@Scheduled(cron = "${exchange.params.cron.every_hour}", zone = "UTC")
     public void everyHourTask() {
         log.info("everyHourTask({})", timeService.getCurrentTime());
     }
 
-    @Scheduled(cron = "${exchange.params.cron.test_interval}", zone = "UTC")
+    //@Scheduled(cron = "${exchange.params.cron.test_interval}", zone = "UTC")
     public void testCallback() {
         log.info("testCallback({}) (**** TEST INTERVAL ****)", timeService.getCurrentTime());
     }
-    */
 
-    @Scheduled(cron = "${cron_params.sync.cron.every_second}", zone = "UTC")
+    //@Scheduled(cron = "${cron_params.sync.cron.every_second}", zone = "UTC")
     public void xmlFileTest_EverySecond() {
         log.info("xmlFileTest_EverySecond({})", timeService.getCurrentTime());
     }
 
-    @Scheduled(cron = "${cron_params.sync.cron.every_minute}", zone = "UTC")
+    // @Scheduled(cron = "${cron_params.sync.cron.every_minute}", zone = "UTC")
     public void xmlFileTest_EveryMinute() {
         log.info("xmlFileTest_EveryMinute({})", timeService.getCurrentTime());
     }
 
-    @Scheduled(cron = "${cron_params.sync.cron.every_hour}", zone = "UTC")
+    //@Scheduled(cron = "${cron_params.sync.cron.every_hour}", zone = "UTC")
     public void xmlFileTest_EveryHour() {
         log.info("xmlFileTest_EveryHour({})", timeService.getCurrentTime());
+    }
+
+    @Scheduled(cron = "${cron_params.sync.cron.1_sec_before_midnight}", zone = "UTC")
+    public void experimental() {
+        log.info("experimental({})", timeService.getCurrentTime());
     }
 }
