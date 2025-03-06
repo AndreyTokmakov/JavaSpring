@@ -30,4 +30,13 @@ public class UserService
         log.info("UserService::getUserByName(email = {})", email);
         return userRepository.findByEmail(email);
     }
+
+    public boolean addUser(User user)
+    {
+        log.info("UserService::addUser {})", user);
+        // var result =  userRepository.save(user);
+        var result =  userRepository.saveAndFlush(user);
+        log.info("UserService::addUser()  result = {}", result);
+        return true;
+    }
 }

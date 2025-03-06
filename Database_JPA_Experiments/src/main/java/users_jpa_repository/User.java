@@ -21,7 +21,7 @@ public class User
 {
     @Id
     @GeneratedValue(strategy= javax.persistence.GenerationType.AUTO)
-    private String userId;
+     Integer userId;
 
     private String name;
     private String email;
