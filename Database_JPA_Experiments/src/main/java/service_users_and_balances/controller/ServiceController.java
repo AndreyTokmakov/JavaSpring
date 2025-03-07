@@ -1,12 +1,12 @@
-package users_jpa_repository;
+package service_users_and_balances.controller;
 
+import io.swagger.annotations.Api;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
@@ -14,17 +14,28 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import service_users_and_balances.model.entities.User;
+import service_users_and_balances.service.BalancesService;
+import service_users_and_balances.service.UserService;
+
+import static service_users_and_balances.swagger.SwaggerConfig.INFO_TAG;
+
+
 @Log4j2
-@Controller
-public class RestController
+@RestController
+@Api(tags = { INFO_TAG })
+public class ServiceController
 {
-    private final static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter
+    private final static DateTimeFormatter dateTimeFormatter = DateTimeFormatter
             .ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneId.of("UTC+04:00"));
 
     @Autowired
     UserService userService;
 
-    public RestController() {
+    @Autowired
+    BalancesService balancesService;
+
+    public ServiceController() {
         log.info("{} created!", this.getClass().getSimpleName());
     }
 
@@ -38,8 +49,7 @@ public class RestController
         }
 
         final User user = userResult.get();
-        System.out.println("User(id: " + user.getUserId() + ", name: "
-                + user.getName() + ", email: " + user.getEmail() + ")");
+        System.out.println("User(id: " + user.getUserId() + ", name: " + user.getName() + ", email: " + user.getEmail() + ")");
         return ResponseEntity.status(200)
                 .header("Custom-Header", "foo")
                 .body("User(id: " + user.getUserId() + ", name: "
@@ -78,5 +88,13 @@ public class RestController
         return ResponseEntity.status(200)
                 .header("Custom-Header", "foo")
                 .body("OK");
+    }
+
+    @GetMapping("/get_balance")
+    public ResponseEntity<String> getBalance()
+    {
+        log.info("RestController::getBalance()");
+        balancesService.findByAccount();
+        return ResponseEntity.status(200).header("Custom-Header", "foo").body("OK");
     }
 }

@@ -1,8 +1,6 @@
-package users_jpa_repository;
+package service_users_and_balances.model.entities;
 
 
-//import jakarta.persistence.*;
-//import javax.persistence.GeneratedValue;
 import lombok.*;
 
 import javax.persistence.Entity;

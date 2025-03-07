@@ -10,11 +10,11 @@ services:
         # image: mysql:latest
 
         volumes:
-            - /tmp/docker/mysql:/var/lib/mysql
+            - /tmp/docker/test_database/mysql:/var/lib/mysql
 
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=snapshots
+            - MYSQL_DATABASE=test_database
             - MYSQL_USER=admin
             - MYSQL_PASSWORD=qwerty12345
 
