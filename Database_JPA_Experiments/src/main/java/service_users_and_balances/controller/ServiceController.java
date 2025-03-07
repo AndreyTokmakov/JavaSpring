@@ -9,11 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+import java.util.UUID;
 
+import service_users_and_balances.model.entities.AccountType;
+import service_users_and_balances.model.entities.BalanceBase;
+import service_users_and_balances.model.entities.SpotBalance;
 import service_users_and_balances.model.entities.User;
 import service_users_and_balances.service.BalancesService;
 import service_users_and_balances.service.UserService;
@@ -95,6 +100,25 @@ public class ServiceController
     {
         log.info("RestController::getBalance()");
         balancesService.findByAccount();
+        return ResponseEntity.status(200).header("Custom-Header", "foo").body("OK");
+    }
+
+    @PostMapping("/add_balance")
+    public ResponseEntity<String> addBalance(@RequestParam(value = "accountType", required = true) final AccountType accountType,
+                                             @RequestParam(value = "subAccountEmail", required = true) final String subAccountEmail,
+                                             @RequestParam(value = "free", required = true) final BigDecimal free,
+                                             @RequestParam(value = "locked", required = true) final BigDecimal locked)
+    {
+        log.info("RestController::addBalance()");
+        final SpotBalance balance = SpotBalance.builder()
+                .id(UUID.randomUUID())
+                .accountType(accountType)
+                .subAccountEmail(subAccountEmail)
+                .free(free)
+                .locked(locked)
+                .build();
+
+        balancesService.addBalance(balance);
         return ResponseEntity.status(200).header("Custom-Header", "foo").body("OK");
     }
 }

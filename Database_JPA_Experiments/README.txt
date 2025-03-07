@@ -12,9 +12,9 @@ docker compose down
 
 
 
-CREATE DATABASE test_db;
+CREATE DATABASE test_database;
 
-use test_db;
+use test_database;
 
 CREATE TABLE IF NOT EXISTS users
 (
@@ -25,4 +25,4 @@ CREATE TABLE IF NOT EXISTS users
 );
 
 
-GRANT ALL PRIVILEGES ON test_db.* TO 'admin'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON test_database.* TO 'admin'@'%' WITH GRANT OPTION;
