@@ -10,6 +10,10 @@ management:
       exposure:
         include: "*"
 
+application_params:
+  # service_type: 'real'
+  service_type: 'mock'
+
 resilience4j.ratelimiter:
   instances:
     simpleRateLimit:

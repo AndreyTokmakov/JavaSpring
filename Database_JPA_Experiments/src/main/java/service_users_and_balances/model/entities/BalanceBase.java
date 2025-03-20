@@ -4,17 +4,16 @@ package service_users_and_balances.model.entities;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 import java.util.UUID;
+import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@javax.persistence.Entity
-@javax.persistence.Table(name = "balances")
+@Entity
+@DiscriminatorColumn(name = "type", discriminatorType=DiscriminatorType.STRING)
+@Table(name = "balances", uniqueConstraints=@UniqueConstraint(columnNames="type"))
 public class BalanceBase
 {
     /*

@@ -33,11 +33,12 @@ import qualifier.demo2.beans.Resource;
 public final class HelloController {
 	
 	@Autowired
-	@Qualifier("RemoteResource")
+	@Qualifier("LocalResource")
+	// @Qualifier("RemoteResource")
 	private Resource resource;
 	
 	public HelloController() {
-		log.info(this.getClass().getSimpleName() + " created!");
+        log.info("{} created!", this.getClass().getSimpleName());
 	}
 	
     private String formatGreet(final String name) {
@@ -47,7 +48,7 @@ public final class HelloController {
     @GetMapping("/resource")
     public String checkResource() {
     	final String text = resource.getData();
-    	log.info("checkResource() called for " + text );
+        log.info("checkResource() called for {}", text);
     	return "<body bgcolor='gray'>" + text + "</body>";
     }
     

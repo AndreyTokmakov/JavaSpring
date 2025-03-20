@@ -15,15 +15,15 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Component("RemoteResource")
-public class RemoteResource implements Resource {
-	
+public class RemoteResource implements Resource
+{
 	public RemoteResource() {
-		log.info(this.getClass().getSimpleName() + " created!");
+        log.info("{} created!", this.getClass().getSimpleName());
 	}
 	
 	@Override
-	public String getData() {
-		// TODO Auto-generated method stub
-		return "REMOVE_RESORUCE";
+	public String getData()
+	{
+		return "REMOVE_RESOURCE";
 	}
 }
