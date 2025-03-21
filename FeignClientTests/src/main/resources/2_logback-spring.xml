@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d %green([%thread]) %highlight(%level) %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--appender name="json" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>false</prettyPrint>
+            </jsonFormatter>
+            <appendLineSeparator>true</appendLineSeparator>
+            <timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>
+        </layout>
+    </appender>
+
+    <appender name="async-json" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="json" />
+        <discardingThreshold>0</discardingThreshold>
+    </appender>
+
+    <appender name="async-console" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="CONSOLE" />
+        <discardingThreshold>0</discardingThreshold>
+    </appender-->
+
+
+    <springProfile name="!local &amp; !test &amp; !int-test">
+        <!--logger name="com.m2.at.coinroutes" level="DEBUG" additivity="false">
+            <appender-ref ref="async-json"/>
+        </logger>
+        <logger name="jsonLogger" level="TRACE">
+            <appender-ref ref="async-json"/>
+        </logger>
+        <root level="info">
+            <appender-ref ref="async-json"/>
+        </root-->
+        <root level="info">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+</configuration>

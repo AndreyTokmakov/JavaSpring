@@ -3,6 +3,7 @@ package request_interceptor_scheduled.clients;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import request_interceptor_scheduled.clients.configuration.ChangeLogLevel;
 import request_interceptor_scheduled.clients.configuration.ResponseLogger;
 // import request_interceptor_scheduled.clients.configuration.ApiClientConfiguration;
 // import request_interceptor_scheduled.clients.configuration.ApiClientResponseInterceptor;
@@ -10,8 +11,9 @@ import request_interceptor_scheduled.clients.configuration.ResponseLogger;
 @FeignClient(
         // url = "http://127.0.0.1:52525",
         url = "${service.api.url}",
-        name = "test-client",
-        configuration = ResponseLogger.class
+        name = "externalservice"
+        // configuration = ChangeLogLevel.class
+        // configuration = ResponseLogger.class
         // configuration = ApiClientResponseInterceptor.class
         // configuration = ApiClientConfiguration.class
 )

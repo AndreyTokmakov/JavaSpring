@@ -28,7 +28,7 @@ public class ApiService
         final String response = apiClient.getSubAccounts(accountId);
 
         // System.out.println("=".repeat(180));
-        // System.out.println(response);
+        System.out.println(response.length());
         // System.out.println("=".repeat(180));
 
         return response;
