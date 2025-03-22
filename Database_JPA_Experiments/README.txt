@@ -26,3 +26,23 @@ CREATE TABLE IF NOT EXISTS users
 
 
 GRANT ALL PRIVILEGES ON test_database.* TO 'admin'@'%' WITH GRANT OPTION;
+
+
+
+=====================================================================================================
+                    Maven
+=====================================================================================================
+
+
+
+# Check versions:
+
+update-java-alternatives -l
+
+
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+
+export PATH=${JAVA_HOME}/bin:${M2_HOME}/bin:${PATH}
+
