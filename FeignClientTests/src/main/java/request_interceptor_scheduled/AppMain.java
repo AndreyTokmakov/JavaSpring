@@ -17,3 +17,6 @@ public class AppMain
         SpringApplication.run(AppMain.class);
     }
 }
+
+
+// mvn exec:java -Dexec.mainClass="request_interceptor_scheduled.AppMain"

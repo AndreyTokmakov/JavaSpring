@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import request_interceptor_scheduled.clients.ApiClient;
+import request_interceptor_scheduled.clients.ApiClientSecond;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +19,9 @@ public class ApiService
     @Autowired
     private ApiClient apiClient;
 
+    @Autowired
+    private ApiClientSecond apiClientSecond;
+
     public ApiService() {
         log.info("{} created!", this.getClass().getSimpleName());
     }
@@ -25,13 +29,15 @@ public class ApiService
     public String getAccountBalance(String accountId)
     {
         // log.info("Service::getAccountBalance() called");
-        final String response = apiClient.getSubAccounts(accountId);
+        final String subAccounts = apiClient.getSubAccounts(accountId);
+        final String currencies = apiClientSecond.getCurrencies(accountId);
 
         // System.out.println("=".repeat(180));
-        System.out.println(response.length());
+        System.out.println(subAccounts.length());
+        System.out.println(currencies.length());
         // System.out.println("=".repeat(180));
 
-        return response;
+        return subAccounts;
     }
     private static String getCurrentTime() {
         return formatter.format(LocalDateTime.now());
