@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AuditConfiguration
 {
+
     public AuditConfiguration() {
         log.info("{} created!", this.getClass().getSimpleName());
     }
