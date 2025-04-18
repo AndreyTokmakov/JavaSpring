@@ -12,10 +12,9 @@ public class BeanBuilderConfiguration
         return new Product("Primary");
     }
 
-    //*
     @Bean
     public Product makeProductSecondary()
     {
         return new Product("Secondary");
-    }//*/
+    }
 }
