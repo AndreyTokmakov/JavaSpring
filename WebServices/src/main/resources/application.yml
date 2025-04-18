@@ -1,0 +1,3 @@
+cache:
+  duration:
+    getInfo: '10s'
